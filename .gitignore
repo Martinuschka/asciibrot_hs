@@ -1,0 +1,34 @@
+# Cabal / GHC build artifacts
+/dist/
+/dist-newstyle/
+/cabal-dev/
+/.ghc.environment.*
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+*.prof
+*.aux
+*.hp
+*.eventlog
+*.tix
+
+# Stack build artifacts
+/.stack-work/
+.stack-work/
+
+# Cabal sandbox files
+/.cabal-sandbox/
+cabal.sandbox.config
+
+# Local project config
+cabal.project.local
+cabal.project.local~
+
+# Editor / OS noise
+.vscode/
+.DS_Store
+Thumbs.db
+*~
