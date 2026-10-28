@@ -3,7 +3,7 @@ name:                asciibrot
 version:             0.1.0.0
 synopsis:            ASCII Mandelbrot fractal with zoom animation
 description:         A CLI tool that displays Mandelbrot fractal as ASCII art with continuous zoom
-license:             BSD3
+license:             NONE
 license-file:        LICENSE
 author:              Martinuschka
 maintainer:          example@example.com
