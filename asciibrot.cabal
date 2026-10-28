@@ -1,0 +1,19 @@
+cabal-version:       2.4
+name:                asciibrot
+version:             0.1.0.0
+synopsis:            ASCII Mandelbrot fractal with zoom animation
+description:         A CLI tool that displays Mandelbrot fractal as ASCII art with continuous zoom
+license:             BSD3
+license-file:        LICENSE
+author:              Martinuschka
+maintainer:          example@example.com
+copyright:           2024 Martinuschka
+category:            Graphics
+build-type:          Simple
+
+executable asciibrot
+  main-is:             Main.hs
+  build-depends:       base >= 4.7 && < 5
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  ghc-options:         -Wall -O2
