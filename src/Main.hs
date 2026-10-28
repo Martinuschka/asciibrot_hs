@@ -46,7 +46,7 @@ mandelbrot c = go (0 :+ 0) 0
 iterToChar :: Int -> Char
 iterToChar n = asciiChars `index` charIndex
   where
-    charIndex = floor (fromIntegral n / fromIntegral maxIterations * fromIntegral (length asciiChars - 1)) :: Int
+    charIndex = floor (fromIntegral n / fromIntegral maxIterations * fromIntegral (length asciiChars - 1) :: Double) :: Int
     index xs i = if i >= 0 && i < length xs then xs !! i else last xs
 
 -- Generate a single frame of the Mandelbrot set
