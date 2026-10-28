@@ -3,7 +3,6 @@ module Main where
 
 import Control.Concurrent (threadDelay)
 import Control.Exception (SomeException, catch, fromException, AsyncException(UserInterrupt))
-import Control.Monad (when)
 import Data.Char (toLower)
 import Data.Complex (Complex(..))
 import System.IO (hFlush, stdout, BufferMode(..), hSetBuffering)
@@ -45,12 +44,9 @@ mandelbrot c = go (0 :+ 0) 0
 
 -- Map iteration count to ASCII character
 iterToChar :: Int -> Char
-iterToChar n
-  | n >= maxIterations = last asciiChars
-  | otherwise = asciiChars `index` (n `div` step)
+iterToChar n = asciiChars `index` (floor (fromIntegral n / fromIntegral maxIterations * fromIntegral (length asciiChars - 1)))
   where
-    step = maxIterations `div` length asciiChars
-    index xs i = if i < length xs then xs !! i else last xs
+    index xs i = if i >= 0 && i < length xs then xs !! i else last xs
 
 -- Generate a single frame of the Mandelbrot set
 generateFrame :: Double -> Double -> Double -> String
@@ -75,8 +71,8 @@ displayFrame zoom centerX centerY = do
 runAnimation :: Double -> IO ()
 runAnimation fps = do
   let startZoom = 1.0
-      centerX = -0.75  -- More interesting starting point
-      centerY = 0.0
+      centerX = -0.743643887037151  -- Deep zoom starting point
+      centerY = 0.131825904205330
       zoomFactor = 1.05  -- 5% zoom per frame
       frameDelay = floor (1000000 / fps)  -- microseconds
   
