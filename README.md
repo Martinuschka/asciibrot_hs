@@ -62,7 +62,3 @@ quit
 └── src
     └── Main.hs
 ```
-
-## License
-
-This project includes a `LICENSE` file; please refer to it for licensing details.
