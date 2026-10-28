@@ -44,8 +44,9 @@ mandelbrot c = go (0 :+ 0) 0
 
 -- Map iteration count to ASCII character
 iterToChar :: Int -> Char
-iterToChar n = asciiChars `index` (floor (fromIntegral n / fromIntegral maxIterations * fromIntegral (length asciiChars - 1)))
+iterToChar n = asciiChars `index` charIndex
   where
+    charIndex = floor (fromIntegral n / fromIntegral maxIterations * fromIntegral (length asciiChars - 1)) :: Int
     index xs i = if i >= 0 && i < length xs then xs !! i else last xs
 
 -- Generate a single frame of the Mandelbrot set
@@ -71,8 +72,8 @@ displayFrame zoom centerX centerY = do
 runAnimation :: Double -> IO ()
 runAnimation fps = do
   let startZoom = 1.0
-      centerX = -0.743643887037151  -- Deep zoom starting point
-      centerY = 0.131825904205330
+      centerX = -0.5  -- Start with full view of Mandelbrot set
+      centerY = 0.0
       zoomFactor = 1.05  -- 5% zoom per frame
       frameDelay = floor (1000000 / fps)  -- microseconds
   
