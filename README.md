@@ -25,7 +25,7 @@ cabal build
 ## Run
 
 ```bash
-cabal run asciibrot
+cabal run
 ```
 
 When the program starts, it will prompt for a frame rate in frames per second, such as:
