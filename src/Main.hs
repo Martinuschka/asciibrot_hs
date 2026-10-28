@@ -58,7 +58,7 @@ generateFrame zoom centerX centerY = concat [row y | y <- [0..height-1]]
   where
     viewWidth = 3.5
     viewHeight = 2.0
-    row y = [iterToChar (mandelbrot (xVal :+ yVal)) | x <- [0..width-1]] ++ "\n"
+    row y = [iterToChar (mandelbrot (xVal x :+ yVal)) | x <- [0..width-1]] ++ "\n"
       where
         yVal = -viewHeight / 2 / zoom + centerY + (viewHeight / zoom) * fromIntegral y / fromIntegral (height - 1)
         xVal x = -viewWidth / 2 / zoom + centerX + (viewWidth / zoom) * fromIntegral x / fromIntegral (width - 1)
