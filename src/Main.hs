@@ -4,7 +4,7 @@ module Main where
 import Control.Concurrent (threadDelay)
 import Control.Exception (SomeException, catch, fromException, AsyncException(UserInterrupt))
 import Data.Char (toLower)
-import Data.Complex (Complex(..))
+import Data.Complex (Complex(..), magnitude)
 import System.IO (hFlush, stdout, BufferMode(..), hSetBuffering)
 import Text.Read (readMaybe)
 
@@ -39,6 +39,7 @@ mandelbrot :: Complex Double -> Int
 mandelbrot c = go (0 :+ 0) 0
   where
     go !z !n
+      | magnitude z > 2.0 = n
       | n >= maxIterations = n
       | otherwise = go (z * z + c) (n + 1)
 
